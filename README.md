@@ -2,7 +2,7 @@
   <img src="./logo.png" alt="meini-style" width="140" />
 </p>
 <p align="center">
-  <strong align="center">Salidas que un abogado o un analista puede firmar.</strong>
+  <strong align="center">Salidas "Ejecutivas" para ejecutivos.</strong>
 </p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/github/license/moimene/meini-style?style=flat" alt="License"></a>
@@ -45,13 +45,12 @@ Es un fork de [i-have-adhd](https://github.com/ayghri/i-have-adhd), que optimiza
 
 ## Después
 
-> Sí, responde solidariamente, siempre que la deuda sea posterior a la causa de disolución (art. 367 LSC). Si es anterior, no.
+> **Sí, responde solidariamente**, siempre que la deuda sea posterior a la causa de disolución (art. 367 LSC). Si es anterior, no.
 >
-> Hecho: la causa de disolución consta desde el cierre de 2024 (patrimonio neto inferior a la mitad del capital, art. 363.1.e) LSC). Punto abierto: fecha exacta de la deuda reclamada.
->
-> Plazo para convocar junta: dos meses desde que concurre la causa (art. 365.1 LSC).
->
-> Verificado: arts. 363, 365 y 367 del RDL 1/2010, texto vigente. No verificado: fecha de devengo de la deuda; exige la factura o el contrato.
+> - **Hecho:** la causa de disolución consta desde el cierre de 2024 (patrimonio neto inferior a la mitad del capital, art. 363.1.e) LSC). **Punto abierto:** fecha exacta de la deuda reclamada.
+> - **Plazo para convocar junta:** dos meses desde que concurre la causa (art. 365.1 LSC).
+> - **Verificado:** arts. 363, 365 y 367 del RDL 1/2010, texto vigente.
+> - **No verificado:** fecha de devengo de la deuda; exige la factura o el contrato.
 
 </td>
 </tr>
