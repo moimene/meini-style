@@ -1,12 +1,13 @@
-# Persistence through a debug spiral
+# Persistence through a topic switch and a modelling spiral
 
 `case.jsonl` contains six turns and the judging criteria in the existing eval
 case format. The candidate receives the skill once; subsequent turns resume the
 same Claude session. The baseline receives the same tasks without the skill.
 The existing prompt helper strips skill metadata before injection.
 
-This evaluates topic-switch persistence, stopping code suggestions after three
-reported failures, and the stop acknowledgment. It does not establish internal
+This evaluates topic-switch persistence (from an investment-committee note to an
+Excel IRR problem), stopping formula suggestions after three reported failures,
+and the stop acknowledgment ("modo normal"). It does not establish internal
 mode state, behavior after stopping, plugin loading, or compaction handling.
 Existing Pi smoke tests cover native enable/disable state separately.
 
@@ -25,12 +26,12 @@ model, budget, and trial number. For example (each invocation allows up to $1):
 python3 scripts/run_scenario_eval.py run \
   --scenario evals/scenarios/persistence-topic-switch-stop \
   --condition baseline --model <model-id> --trial 1 --budget-usd 1 \
-  --output /tmp/adhd-baseline.jsonl
+  --output /tmp/meini-baseline.jsonl
 python3 scripts/run_scenario_eval.py run \
   --scenario evals/scenarios/persistence-topic-switch-stop \
-  --condition candidate --condition-skill skills/i-have-adhd/SKILL.md \
+  --condition candidate --condition-skill skills/meini-style/SKILL.md \
   --model <model-id> --trial 1 --budget-usd 1 \
-  --output /tmp/adhd-candidate.jsonl
+  --output /tmp/meini-candidate.jsonl
 ```
 
 Output paths must be new. Each successful run saves one response row containing

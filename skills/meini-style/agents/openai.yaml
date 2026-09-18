@@ -1,0 +1,7 @@
+interface:
+  display_name: "Meini Style"
+  short_description: "Finance, investment and legal output specification"
+  default_prompt: "Use $meini-style to make this response citable, reconciled and insertable in a legal or financial memo."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,16 +1,24 @@
 {
-  "name": "i-have-adhd",
+  "name": "meini-style",
   "version": "0.3.0",
-  "description": "Shape output for a reader with ADHD: lead with the next action, number multi-step work, restate state across turns, suppress tangents, give specific time estimates, make wins visible.",
+  "description": "Output specification for finance, investment and legal work: conclusion first with its condition, facts separated from inferences, exact citations, numbers with unit, currency, date and basis, declared assumptions, computed deadlines, insertable drafting, explicit verification boundary.",
   "license": "MIT",
-  "homepage": "https://github.com/ayghri/i-have-adhd",
+  "homepage": "https://github.com/moimene/meini-style",
   "private": true,
-  "keywords": ["pi-package"],
+  "keywords": [
+    "pi-package"
+  ],
   "omp": {
-    "extensions": ["./extensions/i-have-adhd.ts"]
+    "extensions": [
+      "./extensions/meini-style.ts"
+    ]
   },
   "pi": {
-    "extensions": ["./extensions/i-have-adhd.ts"],
-    "skills": ["./skills"]
+    "extensions": [
+      "./extensions/meini-style.ts"
+    ],
+    "skills": [
+      "./skills"
+    ]
   }
 }

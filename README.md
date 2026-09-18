@@ -1,105 +1,111 @@
 <p align="center">
-  <img src="./logo.png" alt="i-have-adhd" width="140" />
+  <img src="./logo.png" alt="meini-style" width="140" />
 </p>
 <p align="center">
-  <strong align="center">ADHD-friendly outputs. No ADHD diagnosis needed!</strong>
+  <strong align="center">Salidas que un abogado o un analista puede firmar.</strong>
 </p>
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/ayghri/i-have-adhd?style=flat" alt="License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/moimene/meini-style?style=flat" alt="License"></a>
 </p>
 
 <p align="center">
-  <strong title="English" aria-label="English">🇬🇧</strong> ·
-  <a href=".github/readme/README.zh-CN.md" title="简体中文" aria-label="简体中文">🇨🇳</a> ·
-  <a href=".github/readme/README.es.md" title="Español" aria-label="Español">🇪🇸</a> ·
-  <a href=".github/readme/README.pt-BR.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
-  <a href=".github/readme/README.ja.md" title="日本語" aria-label="日本語">🇯🇵</a> ·
-  <a href=".github/readme/README.vi.md" title="Tiếng Việt" aria-label="Tiếng Việt">🇻🇳</a> ·
-  <a href=".github/readme/README.ko.md" title="한국어" aria-label="한국어">🇰🇷</a> ·
-  <a href=".github/readme/README.fa.md" title="فارسی" aria-label="فارسی">🇮🇷</a> ·
-  <a href=".github/readme/README.th.md" title="ภาษาไทย" aria-label="ภาษาไทย">🇹🇭</a>
+  <strong title="Español" aria-label="Español">🇪🇸</strong> ·
+  <a href=".github/readme/README.en.md" title="English" aria-label="English">🇬🇧</a>
 </p>
 
+## Instalación
 
-## Install
-
-Copy/paste into your CLI prompt:
+Copia y pega en el prompt de tu CLI:
 
 ```text
-Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd, refer to the repo's AGENTS.md for instructions.
+Install the meini-style skill/plugin from https://github.com/moimene/meini-style, refer to the repo's AGENTS.md for instructions.
 ```
 
-Or 🔗 [check the installation instructions](INSTALL.md).
+O consulta las [instrucciones de instalación](INSTALL.md) por runtime (Claude Code, Codex, Gemini CLI, Cursor, OpenCode, Pi y otros).
 
-## What it does
+## Qué hace
 
-A skill for your coding assistant that stops it from burying the answer. Action first. Steps numbered. No "Hope this helps!"
+Una skill para tu asistente de IA que convierte cada respuesta en una pieza de trabajo financiero, de inversión o jurídico: conclusión primero con su condición, hechos separados de inferencias, citas con localización exacta, números que cuadran, supuestos declarados, plazos computados, texto listo para insertar y una frontera explícita entre lo verificado y lo pendiente.
 
-[Kacper Rutkiewicz | AI Made Simple](https://youtu.be/NEl8kPWZP_Y) has made a good breakdown of an earlier version of the skill.
-## What changes
+Es un fork de [i-have-adhd](https://github.com/ayghri/i-have-adhd), que optimiza la salida para que se pueda actuar sobre ella. `meini-style` conserva ese esqueleto (acción primero, sin preámbulo ni cierres, persistencia durante la sesión) y añade lo que un profesional de estos ámbitos necesita para poder usar la respuesta sin retrabajo.
 
+## Qué cambia
 
 <table>
 <tr>
 <td width="50%">
 
-## Before
+## Antes
 
-> Great question! Let me think about this. Your auth flow has a few moving pieces: the middleware, the token verification, and the cookie handling. Looking at `src/auth.ts`, the `verifyToken` function (around lines 42-58) seems to be using an older `jsonwebtoken` API. One approach would be to update the package and rewrite that function. After making the change, you'd want to run the auth tests to confirm nothing breaks. By the way, you might also want to look at your dependency versions overall. Hope this helps! Let me know if you want to dig deeper.
+> Buena pregunta. La responsabilidad de los administradores por deudas sociales es un tema complejo que depende de varios factores. En general, cuando una sociedad incurre en causa de disolución y los administradores no convocan la junta en el plazo legal, pueden llegar a responder de ciertas deudas. Habría que analizar el caso concreto y la fecha de las deudas. Es importante tener en cuenta que esto no constituye asesoramiento jurídico y conviene consultar con un profesional. Espero que sea útil.
 
 </td>
 
 <td width="50%">
 
-## After
+## Después
 
-> Run `npm install jsonwebtoken@latest`, then edit `src/auth.ts:42`.
+> Sí, responde solidariamente, siempre que la deuda sea posterior a la causa de disolución (art. 367 LSC). Si es anterior, no.
 >
-> 1. Open `src/auth.ts`
-> 2. Replace `verifyToken` (lines 42–58) with the snippet below
-> 3. Run `npm test -- auth.spec.ts`
+> Hecho: la causa de disolución consta desde el cierre de 2024 (patrimonio neto inferior a la mitad del capital, art. 363.1.e) LSC). Punto abierto: fecha exacta de la deuda reclamada.
 >
-> Next: paste the first failing line if any test fails.
+> Plazo para convocar junta: dos meses desde que concurre la causa (art. 365.1 LSC).
+>
+> Verificado: arts. 363, 365 y 367 del RDL 1/2010, texto vigente. No verificado: fecha de devengo de la deuda; exige la factura o el contrato.
 
 </td>
 </tr>
 </table>
 
+## Las reglas
 
-## The rules
+12 reglas. Texto completo en [SKILL.md](./skills/meini-style/SKILL.md).
 
-10 rules. Full text in [SKILL.md](./skills/i-have-adhd/SKILL.md).
+1. Conclusión primero, con su condición.
+2. Etiqueta hecho, inferencia, criterio y punto abierto.
+3. Cita con localización exacta y solo lo verificado.
+4. Números con unidad, moneda, fecha y base.
+5. Supuestos en bloque; sensibiliza el que manda.
+6. Fechas, plazos y vigencia computados.
+7. Riesgo graduado con causa y consecuencia.
+8. Terminología exacta; los términos de arte no se traducen.
+9. Pieza lista para insertar.
+10. Alternativas ordenadas, recomendación primero.
+11. Frontera de verificación explícita.
+12. Sin relleno, sin descargos genéricos, sin preámbulo ni cierre.
 
-1. Lead with the next action.
-2. Number multi-step tasks.
-3. End with one concrete next step.
-4. Suppress tangents.
-5. Restate state every turn.
-6. Specific time estimates (minutes, not "a bit").
-7. Make wins visible.
-8. Matter-of-fact errors.
-9. Cap lists to 5 items.
-10. No preamble. No recap. No closers.
+## Por qué es más competente que la especificación general
 
-## Tune it
+| Situación | Skill general de salida | meini-style |
+| --- | --- | --- |
+| Norma citada | "La ley prevé un plazo de un mes" | Artículo, apartado, norma completa, versión vigente; lo no contrastado se marca como pendiente |
+| Cifra | "El margen mejora alrededor de un 2%" | Valor, unidad (% o p.b.), moneda, fecha de cierre, base y cálculo; los totales cuadran |
+| Plazo | "Tienen un mes para recurrir" | Dies a quo, regla de cómputo, dies ad quem y norma que fija la regla |
+| Riesgo | "Riesgo regulatorio a vigilar" | Causa, probabilidad razonada, impacto y mitigación |
+| Redacción | Describe la cláusula | Entrega la cláusula, en el registro del documento, con marcadores [●] |
+| Límite de la respuesta | Descargo genérico | Líneas "Verificado" y "No verificado" con el acceso que resolvería cada punto |
 
-Fork, edit `skills/i-have-adhd/SKILL.md`, then swap your copy in:
+## Ajustarla
+
+Haz un fork, edita `skills/meini-style/SKILL.md` y sustituye tu copia:
 
 ```bash
-claude plugin uninstall i-have-adhd            # drop the upstream copy first:
-claude plugin marketplace remove i-have-adhd   # fork and upstream share both names
-claude plugin marketplace add <your-username>/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
+claude plugin uninstall meini-style            # primero retira la copia instalada:
+claude plugin marketplace remove meini-style   # fork y original comparten nombre
+claude plugin marketplace add <tu-usuario>/meini-style
+claude plugin install meini-style@meini-style
 ```
 
-Restart your coding assistant, then re-invoke `/i-have-adhd`.
+Reinicia el asistente y vuelve a invocar `/meini-style`.
 
-## Credits
+## Evaluación
 
-Loosely based on *The Adult ADHD Tool Kit* by J. Russell Ramsay and Anthony L. Rostain. Adapted for how an LLM should respond, not how a human should organize their day.
+Los casos de `evals/cases.jsonl` cubren consulta jurídica, análisis de inversión, cómputo de plazos, revisión contractual, redacción y límites de verificación. El procedimiento de ejecución, medición y puntuación ciega está en [evals/README.md](evals/README.md).
 
-## License
+## Créditos
+
+Fork de [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) (MIT), de Ayoub Ghriss. La infraestructura multi-runtime, los hooks always-on y el harness de evaluación proceden de ese proyecto. El conjunto de reglas se ha reescrito para trabajo financiero, de inversión y jurídico.
+
+## Licencia
 
 [MIT](LICENSE).
-
-Star ⭐ if it saved you one scroll past one "Great question!"

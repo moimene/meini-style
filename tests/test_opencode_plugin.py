@@ -21,7 +21,7 @@ class OpenCodePluginTest(unittest.TestCase):
         self.plugin_root = Path(self.temp_dir.name) / "plugin"
         shutil.copytree(ROOT / ".opencode", self.plugin_root / ".opencode")
         shutil.copytree(ROOT / "skills", self.plugin_root / "skills")
-        # The plugin reads its flag from $XDG_CONFIG_HOME/opencode/.i-have-adhd-always.
+        # The plugin reads its flag from $XDG_CONFIG_HOME/opencode/.meini-style-always.
         self.config_dir = Path(self.temp_dir.name) / "config"
         (self.config_dir / "opencode").mkdir(parents=True)
 
@@ -31,7 +31,7 @@ class OpenCodePluginTest(unittest.TestCase):
         args = [
             "node",
             str(ROOT / "tests" / "opencode_plugin_driver.mjs"),
-            str(self.plugin_root / ".opencode" / "plugins" / "i-have-adhd.mjs"),
+            str(self.plugin_root / ".opencode" / "plugins" / "meini-style.mjs"),
         ]
         if mode:
             args.append(mode)
@@ -46,10 +46,10 @@ class OpenCodePluginTest(unittest.TestCase):
         )
 
     def opt_in(self):
-        (self.config_dir / "opencode" / ".i-have-adhd-always").touch()
+        (self.config_dir / "opencode" / ".meini-style-always").touch()
 
     def write_skill(self, text):
-        (self.plugin_root / "skills" / "i-have-adhd" / "SKILL.md").write_text(text)
+        (self.plugin_root / "skills" / "meini-style" / "SKILL.md").write_text(text)
 
     def test_silent_without_opt_in_flag(self):
         result = self.run_plugin()
@@ -74,14 +74,14 @@ class OpenCodePluginTest(unittest.TestCase):
     def test_config_hook_registers_the_slash_command(self):
         # Regression test for #140: a global install (plugin loaded from a
         # path outside any checkout, no project-scope .opencode/command/
-        # directory in play) must still get /i-have-adhd, because OpenCode's
+        # directory in play) must still get /meini-style, because OpenCode's
         # skill-sourced commands are not surfaced in the TUI's `/` menu.
         result = self.run_plugin(mode="config")
         self.assertEqual(0, result.returncode, result.stderr)
         config = json.loads(result.stdout)
-        command = config["command"]["i-have-adhd"]
-        self.assertIn("ADHD", command["description"])
-        self.assertIn("stop adhd mode", command["template"])
+        command = config["command"]["meini-style"]
+        self.assertIn("meini-style", command["description"])
+        self.assertIn("stop meini style", command["template"])
 
     def test_config_hook_still_registers_the_skills_path(self):
         result = self.run_plugin(mode="config")
@@ -91,9 +91,9 @@ class OpenCodePluginTest(unittest.TestCase):
 
     def test_config_preserves_existing_command(self):
         custom = {"description": "User command", "template": "Keep this", "agent": "plan"}
-        result = self.run_plugin("config", {"command": {"i-have-adhd": custom}})
+        result = self.run_plugin("config", {"command": {"meini-style": custom}})
         self.assertEqual(0, result.returncode, result.stderr)
-        self.assertEqual(custom, json.loads(result.stdout)["command"]["i-have-adhd"])
+        self.assertEqual(custom, json.loads(result.stdout)["command"]["meini-style"])
 
     def test_repeated_config_does_not_duplicate_skill_paths(self):
         result = self.run_plugin("config")
@@ -101,33 +101,33 @@ class OpenCodePluginTest(unittest.TestCase):
         self.assertEqual([str(self.plugin_root / "skills")], json.loads(result.stdout)["skills"]["paths"])
 
     def test_command_preserves_metadata_and_trims_template(self):
-        metadata = {"description": 'ADHD: "focus"\nnext line', "agent": "plan",
+        metadata = {"description": 'meini-style: "focus"\nnext line', "agent": "plan",
                     "model": "fixture/model", "subtask": True}
-        command = self.plugin_root / ".opencode/command/i-have-adhd.md"
+        command = self.plugin_root / ".opencode/command/meini-style.md"
         command.write_bytes(("---  \r\n" + json.dumps(metadata) +
                              "\r\n--- \t\r\n\r\nUse the skill.\r\n\r\n").encode())
         result = self.run_plugin("config")
         self.assertEqual(0, result.returncode, result.stderr)
         self.assertEqual({**metadata, "template": "Use the skill."},
-                         json.loads(result.stdout)["command"]["i-have-adhd"])
+                         json.loads(result.stdout)["command"]["meini-style"])
 
     def test_missing_command_keeps_skill_discovery(self):
-        (self.plugin_root / ".opencode/command/i-have-adhd.md").unlink()
+        (self.plugin_root / ".opencode/command/meini-style.md").unlink()
         result = self.run_plugin("config")
         self.assertEqual(0, result.returncode, result.stderr)
         config = json.loads(result.stdout)
-        self.assertNotIn("i-have-adhd", config["command"])
+        self.assertNotIn("meini-style", config["command"])
         self.assertEqual([str(self.plugin_root / "skills")], config["skills"]["paths"])
 
     def test_malformed_command_does_not_leak_frontmatter_into_prompt(self):
-        command = self.plugin_root / ".opencode/command/i-have-adhd.md"
+        command = self.plugin_root / ".opencode/command/meini-style.md"
         for text in ["---\n{broken}\n---\nBody", '---\n{"description":"unclosed"}\nBody']:
             with self.subTest(text=text):
                 command.write_text(text)
                 result = self.run_plugin("config")
                 self.assertEqual(0, result.returncode, result.stderr)
                 config = json.loads(result.stdout)
-                self.assertNotIn("i-have-adhd", config["command"])
+                self.assertNotIn("meini-style", config["command"])
                 self.assertEqual([str(self.plugin_root / "skills")], config["skills"]["paths"])
 
 

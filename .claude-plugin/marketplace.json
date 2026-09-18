@@ -1,16 +1,16 @@
 {
   "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
-  "name": "i-have-adhd",
-  "description": "Shape Claude Code output for an ADHD reader. Action-first, numbered steps, no tangents.",
+  "name": "meini-style",
+  "description": "Shape Claude Code output for finance, investment and legal readers. Conclusion first, exact citations, reconciled numbers, explicit verification boundary.",
   "owner": {
-    "name": "Ayoub G."
+    "name": "Moises Menendez"
   },
   "plugins": [
     {
-      "name": "i-have-adhd",
-      "description": "Action-first, ADHD-friendly output shaping for Claude Code.",
+      "name": "meini-style",
+      "description": "Finance, investment and legal output specification for Claude Code.",
       "source": "./",
-      "category": "productivity"
+      "category": "professional"
     }
   ]
 }

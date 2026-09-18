@@ -1,4 +1,4 @@
-"""Checks installation paths in INSTALL.md and translations."""
+"""Checks installation paths in INSTALL.md (and translations, when present)."""
 
 import pathlib
 import unittest
@@ -10,7 +10,6 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 class ZedInstallPathTest(unittest.TestCase):
     def test_zed_install_paths(self):
         translations = sorted((ROOT / ".github/install").glob("INSTALL.*.md"))
-        self.assertTrue(translations, "No translated installation guides found")
         for path in [ROOT / "INSTALL.md", *translations]:
             with self.subTest(file=path.name):
                 text = path.read_text(encoding="utf8")
@@ -23,10 +22,10 @@ class ZedInstallPathTest(unittest.TestCase):
                 self.assertNotIn("~/.config/zed/skills", section)
                 self.assertIn(
                     "mkdir -p ~/.agents/skills\n"
-                    "cp -R i-have-adhd/skills/i-have-adhd ~/.agents/skills/",
+                    "cp -R meini-style/skills/meini-style ~/.agents/skills/",
                     section,
                 )
-                self.assertIn("~/.agents/skills/i-have-adhd", section)
+                self.assertIn("~/.agents/skills/meini-style", section)
 
 
 class GrokInstallPathTest(unittest.TestCase):
@@ -38,14 +37,14 @@ class GrokInstallPathTest(unittest.TestCase):
         self.assertIn("</details>", section)
         section = section.split("</details>", 1)[0]
 
-        self.assertIn("grok plugin install ayghri/i-have-adhd --trust", section)
-        self.assertIn("grok plugin enable i-have-adhd", section)
-        self.assertIn("grok plugin update i-have-adhd", section)
-        self.assertIn("grok plugin uninstall i-have-adhd --confirm", section)
-        self.assertIn("/i-have-adhd", section)
+        self.assertIn("grok plugin install moimene/meini-style --trust", section)
+        self.assertIn("grok plugin enable meini-style", section)
+        self.assertIn("grok plugin update meini-style", section)
+        self.assertIn("grok plugin uninstall meini-style --confirm", section)
+        self.assertIn("/meini-style", section)
         self.assertIn("~/.grok/AGENTS.md", section)
-        self.assertIn("~/.grok/rules/i-have-adhd.md", section)
-        self.assertNotIn("~/.claude/.i-have-adhd-always", section)
+        self.assertIn("~/.grok/rules/meini-style.md", section)
+        self.assertNotIn("~/.claude/.meini-style-always", section)
 
 
 if __name__ == "__main__":

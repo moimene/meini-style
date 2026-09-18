@@ -1,38 +1,39 @@
 {
-  "name": "i-have-adhd",
+  "name": "meini-style",
   "version": "0.3.0",
-  "description": "ADHD-friendly output shaping for Codex: action first, numbered steps, no tangents, and visible progress.",
+  "description": "Shape Codex output for finance, investment and legal readers: conclusion first with its condition, exact citations, numbers with unit, currency, date and basis, declared assumptions, computed deadlines, insertable drafting, explicit verification boundary.",
   "author": {
-    "name": "Ayoub G.",
-    "url": "https://github.com/ayghri"
+    "name": "Moises Menendez",
+    "url": "https://github.com/moimene"
   },
-  "homepage": "https://github.com/ayghri/i-have-adhd",
-  "repository": "https://github.com/ayghri/i-have-adhd",
+  "homepage": "https://github.com/moimene/meini-style",
+  "repository": "https://github.com/moimene/meini-style",
   "license": "MIT",
   "keywords": [
-    "adhd",
+    "finance",
+    "investment",
+    "legal",
     "output-style",
-    "productivity",
     "skills",
     "codex"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "I Have ADHD",
-    "shortDescription": "Action-first output for ADHD readers",
-    "longDescription": "Shape Codex responses for an ADHD reader by leading with the next action, numbering multi-step work, suppressing tangents, restating state, and making progress visible.",
-    "developerName": "Ayoub G.",
-    "category": "Productivity",
+    "displayName": "Meini Style",
+    "shortDescription": "Finance, investment and legal output specification",
+    "longDescription": "Shape Codex responses for finance, investment and legal readers by leading with the conclusion and its condition, separating facts from inferences, citing with exact location, reconciling numbers with unit, currency, date and basis, declaring assumptions, computing deadlines, delivering insertable drafting and closing with an explicit verification boundary.",
+    "developerName": "Moises Menendez",
+    "category": "Professional",
     "capabilities": [
       "Instructions"
     ],
-    "websiteURL": "https://github.com/ayghri/i-have-adhd",
+    "websiteURL": "https://github.com/moimene/meini-style",
     "defaultPrompt": [
-      "Use i-have-adhd for this task.",
-      "Make this answer action-first and easy to execute.",
-      "Review this response for ADHD-friendly structure."
+      "Use meini-style for this task.",
+      "Make this answer citable and insertable in a legal or financial memo.",
+      "Review this response against the meini-style verification checklist."
     ],
-    "brandColor": "#2563EB",
+    "brandColor": "#0F3D5E",
     "composerIcon": "./logo.png",
     "logo": "./logo.png"
   }

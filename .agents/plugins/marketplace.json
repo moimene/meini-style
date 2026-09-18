@@ -1,21 +1,21 @@
 {
-  "name": "i-have-adhd",
+  "name": "meini-style",
   "interface": {
-    "displayName": "I Have ADHD"
+    "displayName": "Meini Style"
   },
   "plugins": [
     {
-      "name": "i-have-adhd",
+      "name": "meini-style",
       "source": {
         "source": "url",
-        "url": "https://github.com/ayghri/i-have-adhd.git",
+        "url": "https://github.com/moimene/meini-style.git",
         "ref": "main"
       },
       "policy": {
         "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"
       },
-      "category": "Productivity"
+      "category": "Professional"
     }
   ]
 }

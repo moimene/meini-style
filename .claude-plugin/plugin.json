@@ -1,9 +1,9 @@
 {
-  "name": "i-have-adhd",
+  "name": "meini-style",
   "version": "0.3.0",
-  "description": "Shape Claude Code output for an ADHD reader: lead with the next action, number steps, suppress tangents, restate state, make wins visible.",
+  "description": "Shape Claude Code output for finance, investment and legal readers: conclusion first with its condition, exact citations, numbers with unit, currency, date and basis, declared assumptions, computed deadlines, insertable drafting, explicit verification boundary.",
   "author": {
-    "name": "Ayoub G.",
-    "url": "https://github.com/ayghri"
+    "name": "Moises Menendez",
+    "url": "https://github.com/moimene"
   }
 }

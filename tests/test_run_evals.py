@@ -408,14 +408,14 @@ class EvaluationHarnessTest(unittest.TestCase):
             skill = Path(tmp) / "SKILL.md"
             skill.write_text(
                 "---\n"
-                "name: i-have-adhd\n"
+                "name: meini-style\n"
                 "disable-model-invocation: true\n"
                 "metadata:\n"
                 "  hermes:\n"
-                "    tags: [ADHD]\n"
+                "    tags: [Finance, Legal]\n"
                 "---\n"
                 "\n"
-                "# i-have-adhd\n"
+                "# meini-style\n"
                 "\n"
                 "Lead with the next action.\n"
             )
